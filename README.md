@@ -25,7 +25,7 @@ There are three general formats supported,
 
 ### Usage
 
-Operations can take place using MSJSONDate class methods, or the MSJSONDate category for NSDate instances.
+Operations can take place using either the MSJSONDate class methods, or the MSJSONDate category for NSDate instances.
 
 Example snippet:
 
@@ -50,10 +50,10 @@ Example snippet:
 ### Installation
 
 - [Download MSJSONDate](https://github.com/coryallegory/CMJSON/zipball/master)
-- Unzip and import the MSJSONDate subdirectory into your project.
+- Unzip and import the MSJSONDate subdirectory into your Xcode project.
 - Simply `#import "MSJSONDate.h"` in your implementation files to get started.
 
 
 ### License
 
-MSJSONDate was created by Cory Metcalfe ([coryallegory](https://github.com/coryallegory)), and is available under the MIT license. See the LICENSE file for more info.
+MSJSONDate was created by Cory Metcalfe ([coryallegory](https://github.com/coryallegory)), and is available under the MIT license. See the [LICENSE](https://github.com/coryallegory/MSJSONDate/blob/master/MSJSONDate/LICENSE) file for more info.
