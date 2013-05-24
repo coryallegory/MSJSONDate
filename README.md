@@ -29,22 +29,15 @@ Operations can take place using either the MSJSONDate class methods, or the MSJS
 
 Example snippet:
 
-    NSError *error;
-    id jsonElement = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-    if (error) {
-        // Error handling
-    } else {
-        id dateElement = [jsonElement objectForKey:@"DateLastModified"];
-        NSDate *date = [MSJSONDate dateWithJSON:dateElement];
-    }
+    id json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+    id dateElement = json[@"DateLastModified"];
+    NSDate *date = [MSJSONDate dateWithJSON:dateElement];
 
 Example snippet:
 
     NSDate *date = [NSDate date];
-    NSString *jsonDate = [date jsonValue];
-    
     NSMutableDictionary *jsonElement = [NSMutableDictionary new];
-    [jsonElement setObject:jsonDate forKey:@"DateLastModified"];
+    [jsonElement setObject:[date jsonValue] forKey:@"DateLastModified"];
 
 
 ### Installation
