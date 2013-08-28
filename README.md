@@ -1,7 +1,7 @@
 MSJSONDate
 ==========
 
-Cocoa library used to parse and generate date strings encoded using Microsoft JSON formats.
+Cocoa/Objective-C library used to parse and generate date strings encoded using Microsoft JSON formats.
 
 There are three general formats supported,
 
@@ -38,6 +38,10 @@ Example snippet:
     NSDate *date = [NSDate date];
     NSMutableDictionary *jsonElement = [NSMutableDictionary new];
     [jsonElement setObject:[date jsonValue] forKey:@"DateLastModified"];
+
+
+### API Docs
+
 
 
 ### Installation

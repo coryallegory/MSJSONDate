@@ -24,30 +24,21 @@
 #import <Foundation/Foundation.h>
 
 
+#pragma mark - Class Methods
+
 /**
  *  MSJSONDate is used to parse and generate datetime strings encoded using Microsoft JSON formats:
  *
- *  1.  /Date(1198908717056)/
+ *  1.  `/Date(1198908717056)/`
  *
- *  2.  /Date(1198908717056+0500)/
+ *  2.  `/Date(1198908717056+0500)/`
  *
- *  3.  {
+ *  3.  `{
  *          DateTime: "/Date(1198908717056)/",
  *          OffsetMinutes: "-360"
- *      }
+ *      }`
  *
  */
-
-
-#pragma mark - NSDictionary keys for parsed JSON values
-/**
- *  Keys for parsed JSON values
- */
-extern NSString *const MSJSONDateInMilliseconds; ///Dictionary key for datetime value expressed in milliseconds since epoch
-extern NSString *const MSJSONTimeZoneOffsetInMilliseconds; ///Dictionary key for timezone offset expressed as milliseconds from GMT
-
-
-#pragma mark - Class Methods
 
 @interface MSJSONDate : NSObject {}
 
@@ -83,7 +74,7 @@ extern NSString *const MSJSONTimeZoneOffsetInMilliseconds; ///Dictionary key for
 /**
  *  Generate a JSON string element using the Microsoft format
  *
- *      /Date(1198908717056)/
+ *      `/Date(1198908717056)/`
  *
  *  @param date     NSDate to be converted to JSON string
  *  @return         JSON string element, nil if date parameter is nil
@@ -93,7 +84,7 @@ extern NSString *const MSJSONTimeZoneOffsetInMilliseconds; ///Dictionary key for
 /**
  *  Generate a JSON string element using the Microsoft format with current timezone offset
  *
- *      /Date(1198908717056+0500)/
+ *      `/Date(1198908717056+0500)/`
  *
  *  @param date     NSDate to be converted to JSON string
  *  @param appendCurrentTimeZone  Specify whether or not to include timeZone information in the JSON value
@@ -104,7 +95,7 @@ extern NSString *const MSJSONTimeZoneOffsetInMilliseconds; ///Dictionary key for
 /**
  *  Generate a JSON string element using the Microsoft format with timezone offset
  *
- *      /Date(1198908717056+0500)/
+ *      `/Date(1198908717056+0500)/`
  *
  *  If timezone is nil, offset is not omitted.
  *
@@ -121,10 +112,10 @@ extern NSString *const MSJSONTimeZoneOffsetInMilliseconds; ///Dictionary key for
  *  Parses a JSON object of the Microsft DateTimeOffset format, and generates a corresponding NSDate element
  *
  *  Expected format:
- *      {
+ *      `{
  *          DateTime: "/Date(1198908717056)/",
  *          OffsetMinutes: "-360"
- *      }
+ *      }`
  *
  *  @param dateTimeOffset   JSON object with DateTimeOffset key-value pairs
  *  @return                 NSDate corresponding to dateTimeOffset, nil if DateTime key not found or invalid
@@ -135,10 +126,10 @@ extern NSString *const MSJSONTimeZoneOffsetInMilliseconds; ///Dictionary key for
  *  Parses a JSON object of the Microsft DateTimeOffset format, and generates a corresponding NSTimeZone element
  *
  *  Expected format:
- *      {
+ *      `{
  *          DateTime: "/Date(1198908717056)/",
  *          OffsetMinutes: "-360"
- *      }
+ *      }`
  *
  *  @param dateTimeOffset   JSON object with DateTimeOffset key-value pairs
  *  @return                 NSTimeZone corresponding to dateTimeOffset,
@@ -149,10 +140,10 @@ extern NSString *const MSJSONTimeZoneOffsetInMilliseconds; ///Dictionary key for
 /**
  *  Generate a JSON object of key value pairs using the Microsoft DateTimeOffset format as follows:
  *
- *      {
+ *      `{
  *          DateTime: "/Date(1198908717056)/",
  *          OffsetMinutes: "-360"
- *      }
+ *      }`
  *
  *  The current timezone is used to calculate the OffsetMinutes value.
  *
@@ -170,10 +161,10 @@ extern NSString *const MSJSONTimeZoneOffsetInMilliseconds; ///Dictionary key for
 /**
  *  Generate a JSON object of key value pairs using the Microsoft DateTimeOffset format as follows:
  *
- *      {
+ *      `{
  *          DateTime: "/Date(1198908717056)/",
  *          OffsetMinutes: "-360"
- *      }
+ *      }`
  *
  *  Unrecognized or unexpected values will be omitted from the generated JSON object.
  *
@@ -187,6 +178,31 @@ extern NSString *const MSJSONTimeZoneOffsetInMilliseconds; ///Dictionary key for
  */
 + (NSDictionary *)offsetJSONWithDate:(NSDate *)date timeZone:(NSTimeZone *)timeZone;
 
+
+#pragma mark Constants
+
+/**
+ *  NSDictionary keys for parsed JSON values
+ */
+
+/**
+ *  MSJSONDateInMilliseconds
+ *
+ *  Key for datetime value expressed in milliseconds since epoch.
+ *
+ *      `extern NSString *const MSJSONDateInMilliseconds;`
+ */
+extern NSString *const MSJSONDateInMilliseconds;
+
+/**
+ *  MSJSONTimeZoneOffsetInMilliseconds
+ *
+ *  Key for timezone offset expressed as milliseconds from GMT.
+ *
+ *      `extern NSString *const MSJSONTimeZoneOffsetInMilliseconds;`
+ */
+extern NSString *const MSJSONTimeZoneOffsetInMilliseconds;
+
 @end
 
 
@@ -199,7 +215,7 @@ extern NSString *const MSJSONTimeZoneOffsetInMilliseconds; ///Dictionary key for
 /**
  *  Generate a JSON string element using the Microsoft format
  *
- *      /Date(1198908717056)/
+ *      `/Date(1198908717056)/`
  *
  *  @return JSON string element
  */
@@ -208,7 +224,7 @@ extern NSString *const MSJSONTimeZoneOffsetInMilliseconds; ///Dictionary key for
 /**
  *  Generate a JSON string element using the Microsoft format with current timezone offset
  *
- *      /Date(1198908717056+0500)/
+ *      `/Date(1198908717056+0500)/`
  *
  *  @return JSON string element
  */
@@ -217,7 +233,7 @@ extern NSString *const MSJSONTimeZoneOffsetInMilliseconds; ///Dictionary key for
 /**
  *  Generate a JSON string element using the Microsoft format with timezone offset
  *
- *      /Date(1198908717056+0500)/
+ *      `/Date(1198908717056+0500)/`
  *
  *  If timezone is nil, offset is omitted.
  *
@@ -232,10 +248,10 @@ extern NSString *const MSJSONTimeZoneOffsetInMilliseconds; ///Dictionary key for
 /**
  *  Generate a JSON object of key value pairs using the Microsoft DateTimeOffset format as follows:
  *
- *      {
+ *      `{
  *          DateTime: "/Date(1198908717056)/",
  *          OffsetMinutes: "-360"
- *      }
+ *      }`
  *
  *  The current timezone is used to calculate the OffsetMinutes value.
  *
@@ -250,10 +266,10 @@ extern NSString *const MSJSONTimeZoneOffsetInMilliseconds; ///Dictionary key for
 /**
  *  Generate a JSON object of key value pairs using the Microsoft DateTimeOffset format as follows:
  *
- *      {
+ *      `{
  *          DateTime: "/Date(1198908717056)/",
  *          OffsetMinutes: "-360"
- *      }
+ *      }`
  *
  *  Unrecognized or unexpected timezone values will be omitted from the generated JSON object.
  *
